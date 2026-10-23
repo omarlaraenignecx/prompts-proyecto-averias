@@ -1,5 +1,7 @@
 # Mecánica operativa de SIGA para el cierre de averías
 
+**Versión de este recurso: 2026-10-23 (v2: el conector opera renglones, Observaciones y dictamen; navegador integrado sólo para ver).** Quien edite este archivo actualiza aquí la fecha y la nota de qué cambió.
+
 Referencia para el proyecto "Averías GarantiPlus — copiloto del técnico". Describe qué pantallas y botones existen en SIGA, qué hace cada uno, qué queda registrado y cómo se relaciona con el conector "Lector de Averías", tal como se verificó en el ambiente de pruebas (`pruebas.garantiplus.mx`) y en producción (`intranet.garantiplus.mx`) con cuentas del área de averías. Las dos tienen la misma estructura de pantallas; si algo difiere, prevalece lo que se ve en pantalla.
 
 Este documento **no** cubre criterios de cobertura (qué cláusula excluye qué); eso se decide con el certificado de cada avería en mano (ver `03-criterios-dictamen.md`). Aquí se separan tres cosas que conviene no mezclar: lo que hace SIGA, lo que hace el conector (que desde octubre de 2026 también **opera** las pantallas de SIGA con su propio navegador en el servidor: renglones, Observaciones y dictamen), y las reglas del área. **El navegador integrado de Claude solo se usa para ver averías en SIGA, cuando está disponible; nunca para operar.**

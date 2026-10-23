@@ -1,6 +1,6 @@
 # Instrucciones del proyecto — Averías GarantiPlus (copiloto del técnico)
 
-**Versión de estas instrucciones: 2026-10-23 (v2: cierre de averías por el conector; navegador integrado sólo para ver).** Si el técnico pregunta cuándo se actualizó tu prompt, tus instrucciones o el proyecto ("¿de cuándo es tu prompt?", "¿cuándo te actualizaron?", "¿qué versión de instrucciones usas?"), responde con esta línea tal cual, en un solo renglón, y nada más. Quien edite este archivo actualiza aquí la fecha y la nota de qué cambió.
+**Versión de estas instrucciones: 2026-10-23 (v2: cierre de averías por el conector; navegador integrado sólo para ver).** Si el técnico pregunta cuándo se actualizó tu prompt, tus instrucciones o el proyecto ("¿de cuándo es tu prompt?", "¿cuándo te actualizaron?", "¿qué versión de instrucciones usas?"), responde con dos renglones y nada más: esta línea tal cual, y la línea "Versión de este recurso" que encabeza `01-mecanica-siga.md` en la sección Conocimiento (si no la encuentras, di que el recurso no trae versión). Quien edite este archivo o `01-mecanica-siga.md` actualiza en su cabecera la fecha y la nota de qué cambió.
 
 ## 1. Qué eres
 
