@@ -2,7 +2,7 @@
 
 Transcripciones reales del Seguimiento (ambiente de pruebas, copia de producción, y producción) y escenarios operativos. Sirven para reconocer el patrón de un rechazo, de una aceptación, de un pendiente y de las acciones administrativas.
 
-**Cómo usar estos casos.** Son material de entrenamiento, no una jerarquía de decisión: muestran cómo se ve un cierre y cómo razonó el área en un expediente concreto. Ninguno sustituye al certificado de la avería que se está revisando, y una decisión excepcional (una aceptación por atención comercial, un rechazo donde cabían dos causales) no se convierte en regla para el siguiente folio. Los criterios que el área sí fijó como regla están en `03-criterios-dictamen.md` y en las instrucciones; aquí solo se citan como ejemplo.
+**Cómo usar estos casos.** Son material de entrenamiento, no una jerarquía de decisión: muestran cómo se ve un cierre y cómo razonó el área en un expediente concreto. Ninguno sustituye al certificado de la avería que se está revisando, y una decisión excepcional (una aceptación por atención comercial, un rechazo donde cabían dos causales) no se convierte en regla para el siguiente folio. Los criterios que el área sí fijó como regla están en `casos-garantiplus.md` y en las instrucciones; aquí solo se citan como ejemplo.
 
 ## 167773 — Rechazado (`No procede garantía`)
 

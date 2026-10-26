@@ -1,4 +1,6 @@
-# Criterios de dictamen — GarantiPlus MX
+# Criterios de dictamen — cuenta GarantiPlus MX (plantilla `garantiplus`)
+
+**Versión de este recurso: 2026-10-26 (v4.1: antes `03-criterios-dictamen.md`; absorbe el intervalo de mantenimiento que vivía en `instructions.md` §4.2). Sólo aplica a averías de la cuenta GarantiPlus MX; para el programa Mitsubishi ver `casos-mitsubishi.md`.**
 
 Reglas para decidir si una avería procede. Todas se apoyan en lo que dicen los certificados de GarantiPlus leídos en casos reales de SIGA, o en lo observado en esos casos. No existe un contrato general de referencia: **cada avería tiene su propio certificado y es el único texto contractual que cuenta**; este documento solo describe cómo suele leerlo el área y qué buscar en él. Cuando una regla es criterio del área y no cláusula, se dice. **El certificado de cada caso, que llega completo dentro de `expediente_completo`, es la primera fuente de verdad y manda sobre este documento.** Para redactar el Informe, ver `05-redaccion-informes.md`.
 
@@ -180,3 +182,18 @@ Una sola, la que destrabe el caso:
 - ¿Alguna partida del presupuesto queda fuera por criterio del área?
 - ¿Hay una excepción comercial (ATC)? ¿Quién la autorizó y con qué alcance?
 - Dos fuentes dan valores distintos de {dato}: ¿cuál prevalece?
+
+## 13. Intervalo de mantenimiento (criterio de la cuenta; no es "Supuesto", no se pregunta, no se cambia por lo que rotulen las facturas)
+
+- **Vehículo nuevo con garantía de fábrica vigente** (ficha del expediente → "Garantía de fábrica: sí"): plan del fabricante si está en el expediente (documento del fabricante, no el rótulo de una factura). Si no está, **12,000 km o 12 meses, lo que ocurra primero** (criterio del área).
+- **Seminuevo o garantía de fábrica terminada** ("Garantía de fábrica: no"): **6 meses o 10,000 km, lo que ocurra antes**, en distribuidor autorizado del fabricante. Es contractual (cláusula 9 en los certificados leídos), no criterio del área.
+- **Se mide desde el servicio anterior**: el recorrido entre un servicio y el siguiente (y los días entre ambos). El primer tramo cuenta desde la fecha de la primera factura y el km de entrega (nuevo) o desde el servicio anterior documentado (seminuevo).
+- **Tolerancia: hasta 1,000 km o 30 días por tramo** (criterio del área). Nuevo: excedido a partir de 13,001 km o 396 días; seminuevo: a partir de 11,001 km o 213 días.
+- **Qué cuenta como servicio**: uno con cambio de aceite y filtro en distribuidor autorizado. Una "revisión general" o inspección sin aceite **no** reinicia el intervalo.
+- **Desde dónde se cuenta, según el producto** (así lo aplica el área, verificado en resoluciones reales):
+  - **Nuevo / M1**: todo el historial desde la primera factura; un tramo que cruza el inicio de vigencia cuenta completo.
+  - **Seminuevo / M2**: desde la **fecha e inicio de kilometraje del contrato** (o desde el último servicio documentado posterior); los tramos anteriores al contrato **no** se miden. El historial previo solo se menciona cuando el hueco es de años y la unidad lleva muy pocos km desde el contrato, como señal de condición preexistente.
+  - El tramo abierto (último servicio → fecha de avería) también cuenta.
+- **Si el expediente no trae ningún comprobante de mantenimiento, no se evalúa ni bloquea el veredicto**, diga lo que diga el campo "servicios a tiempo" de la ficha. Dictamina con el resto, anota en una viñeta "mantenimiento: sin comprobantes en el expediente (SIGA: servicios a tiempo sí/no)" y, si procede, deja que el técnico decida si los pide antes del Informe. Si hay comprobantes, se miden y pueden rechazar el caso.
+- **Vehículos medidos en horas** (motos acuáticas y similares): el intervalo se mide en horas de uso según la cláusula 9 de ese certificado, no en meses.
+- En el veredicto, un incumplimiento se reporta así: "N de M servicios exceden el intervalo (recorridos: …)". La tabla completa de intervalos (fecha, km, días, recorrido) va en la argumentación y, si se rechaza, en el Informe.
