@@ -288,23 +288,11 @@ Parámetros:
 
 ### 5.2 Generar el definitivo y abrirlo en el navegador
 
-No se usa la vista previa (`vistaPrevia: true`): su archivo se titula "borrador", no se puede subir y lleva al técnico a descargarlo y renombrarlo a mano. El documento que se revisa es siempre el definitivo.
-
-1. Llama a `generar_resolucion` **sin `vistaPrevia`** con el esquema completo de §5.1. El conector devuelve la versión (huella) y cuatro enlaces (7 días): **Ver en el navegador**, **Descargar PDF**, **Descargar Word** y **Bandeja de versiones**; el archivo se llama `RESOLUCIÓN {folio}.pdf`, sin "borrador" ni "aceptada/rechazada".
-2. **Si el navegador integrado está disponible, abre el enlace "Ver en el navegador" en una pestaña nueva, de inmediato y sin que te lo pidan**, y déjala al frente. Si no está disponible, dilo en una línea y entrega el enlace para que el técnico lo abra él.
-3. En el chat: el encabezado tal como lo devolvió el conector (revisa que cada línea trae un valor real: no "—", no vacío, no "0 KM" en km de avería; si un campo tomado de SIGA difiere del certificado, manda el del certificado en `encabezado` y regenera), los cuatro enlaces en cuatro líneas, y la pregunta: `¿Lo subo a SIGA? Sí / Cambiar algo (dime qué)`.
-4. Espera a que el técnico lo lea. Cada cambio que pida se aplica **regenerando** (otro definitivo, otra versión en la bandeja; nunca editando a mano) y **se vuelve a abrir en el navegador si lo hay**, hasta que diga que sí. Las versiones que no se aprueban se quedan en la bandeja sin consecuencias; solo se sube la aprobada. Si el conector devuelve el aviso "No mandaste el IVA", ignóralo: es informativo. Cualquier otro aviso (subtotal que no cuadra, numeral inexistente, campo faltante) resuélvelo antes de volver a preguntar.
+No se usa la vista previa (`vistaPrevia: true`): su archivo se titula «borrador», no se puede subir y lleva al técnico a descargarlo y renombrarlo a mano. El documento que se revisa es siempre el definitivo, y **se entrega junto con la tabla de parámetros de cierre en el mismo mensaje** (§4.4): el técnico aprueba las dos cosas con un solo «Confirmo». Cada cambio que pida se aplica **regenerando** (otro definitivo, otra versión en la bandeja; nunca editando a mano) y **se vuelve a abrir en el navegador si lo hay**, con la tabla otra vez. Las versiones que no se aprueban se quedan en la bandeja sin consecuencias; sólo se sube la aprobada. Si el conector devuelve el aviso «No mandaste el IVA», ignóralo: es informativo. Cualquier otro aviso (subtotal que no cuadra, numeral inexistente, campo faltante) resuélvelo antes de contestar.
 
 ### 5.3 Subida a SIGA con el conector
 
-Con el "Sí" del técnico al documento que acaba de ver abierto, **en el mismo turno**:
-
-1. `subir_resolucion` con `claimId` y **sin `confirmar`**. El conector responde qué versión subiría (la última definitiva, con su huella), su enlace y si la avería ya tiene resoluciones cargadas.
-2. Si la versión que nombra es **la misma que acabas de generar y abrir** (misma huella), llama de inmediato `subir_resolucion` con `confirmar: true`, **una sola vez**: el "Sí" del técnico es la aprobación de esa versión. Si la huella no coincide, o si el conector avisa de algo que el técnico no sabe (ya hay otra resolución cargada, error), detente, muéstralo tal cual y pregunta `¿Subo esta versión? Sí / No`. Si responde con error, muéstralo literal y espera; no reintentes a ciegas. Una versión ya subida no se sube dos veces.
-3. **Comprueba que el archivo aparece.** Si el navegador integrado está disponible, recarga `{base}/Averias/Averias/Details/{folio}` y mira que en "Documentos" está `RESOLUCIÓN {folio}.pdf` con tipo Resolución y la fecha y hora de hoy. Si no lo hay, lo compruebas con `renglones_averia` (trae el documento Resolución), o lo dejas para el paso 2 de §4.4, donde se lee de todos modos. Dilo en una línea. Si no aparece, reporta la respuesta literal del conector y detente.
-4. Pregunta: `¿Pasamos al cierre en SIGA? Sí / Después`. "Después" = el documento queda subido y la avería se cierra más tarde; con varios folios, sigue con el siguiente documento. "Sí" = §4.4.
-
-El técnico nunca descarga, renombra ni sube el archivo: si lo hace, es señal de que el flujo se cortó antes del definitivo.
+La subida no tiene pregunta propia: va **dentro del turno del «Confirmo»** a la tabla (§4.5, paso 1), siempre en dos llamadas (`subir_resolucion` sin `confirmar` → con `confirmar: true`), una sola vez por versión y sólo de la versión que el técnico vio. Si la versión que el conector nombra no es la de la tabla, o avisa de otra Resolución que el técnico no vio, o responde error, te detienes y preguntas `¿Subo esta versión? Sí / No`. El ensayo que sigue en el mismo turno comprueba que el documento ya aparece («La avería ahora» trae el documento Resolución); si no aparece, el ensayo lo marca como impedimento y te detienes con la respuesta literal del conector. El técnico nunca descarga, renombra ni sube el archivo: si lo hace, es señal de que el flujo se cortó antes del definitivo.
 
 ### 5.4 Lista de control antes del definitivo (la revisas tú)
 
