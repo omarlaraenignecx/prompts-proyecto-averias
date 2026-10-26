@@ -21,7 +21,7 @@ Producto EXCELLENCE CARSHOP M2 VD, Chevrolet Cavalier 2023, contrato 674076, 88,
 
 **Después de cerrado:** título "Visualización de avería"; único botón "Reabrir avería".
 
-**Patrón que enseña:** rechazo documental (el taller no entregó lo solicitado en el plazo de 72 h de 12.4, contadas desde la solicitud del 20/09 20:09). Motivo de catálogo coherente: *Falta al proceso o incompleto (Distribuidor)*. Es "no acreditó", no "no cumplió". El Informe se subió **tres minutos antes** de marcar "No procede garantía": primero el documento, luego el dictamen. La causa del renglón se capturó en texto libre; hoy la regla del área es poner el motivo del catálogo literal.
+**Patrón que enseña:** rechazo documental (el taller no entregó lo solicitado en el plazo de 72 h de 12.4, contadas desde la solicitud del 20/09 20:09). Motivo de catálogo coherente: *Falta al proceso o incompleto (Distribuidor)*. Es "no acreditó", no "no cumplió". El Informe se subió **tres minutos antes** de marcar "No procede garantía": primero el documento, luego el dictamen. La causa del renglón se capturó en texto libre; **desde el 26/10/2026 ésa es la regla**: cada refacción lleva su porqué en texto libre (`causas`) y el motivo del catálogo va en el dictamen.
 
 ## 165694 — Aceptado (`Aceptada` → `Taller`)
 
@@ -66,7 +66,7 @@ Producto EXCELLENCE SEDANES GM M2 24, contrato 589833, km inicial 36,821, vigenc
 
 **Pruebas (copia del 19/09):** sin facturas, con dos requerimientos sin respuesta (18/09 y 28/09) → rechazo documental por 12.4, motivo *Falta al proceso o incompleto (Distribuidor)*. Se generó con el conector el Informe improcedente (`numerales: ["12.4"]` + cláusula 9 completa en `clausulasLiterales`, sin `desarrollo`; 3 páginas) como `RESOLUCIÓN 167410.pdf`. El 🗑 del servicio DIAGNÓSTICO no respondió desde el navegador integrado (diálogo nativo) y el panel "Resolución" siguió oculto; quedó para el técnico.
 
-**Patrón que enseña:** el conector y la pantalla pueden traer documentos distintos para el mismo folio cuando están en ambientes distintos; por eso ambos tienen que apuntar al mismo ambiente y el veredicto se razona con el expediente que de verdad hay en ese ambiente. También muestra la diferencia entre la causa de texto libre por renglón (lo que no se debe hacer) y el motivo de catálogo literal.
+**Patrón que enseña:** el conector y la pantalla pueden traer documentos distintos para el mismo folio cuando están en ambientes distintos; por eso ambos tienen que apuntar al mismo ambiente y el veredicto se razona con el expediente que de verdad hay en ese ambiente. También muestra la diferencia entre la causa de texto libre por renglón y el motivo de catálogo literal: **son dos parámetros distintos y desde el 26/10/2026 van los dos** (`causas` y `motivo`).
 
 ## 164143 — Rechazo por intervalos de mantenimiento (resolución real del equipo)
 
@@ -80,7 +80,7 @@ Resolución real subida el 05/09/2026 (`RESOLUCION AVERIA 164143.pdf`): **no pro
 
 Aveo 2020, EXCELLENCE SEDANES GM M2 12, transmisión. Rechazo por intervalo de mantenimiento excedido en tiempo (245 días desde el inicio del contrato sin servicio; regla de 6 meses / 10,000 km). Lo que dejó la prueba:
 
-- La causa de rechazo del renglón se capturó en texto libre y quedó impresa en "Síntomas de la avería"; el área la quiere **igual al motivo del catálogo** (`Intervalo de Mantenimiento Excedido`). No se puede corregir después.
+- La causa de rechazo del renglón se capturó en texto libre y quedó impresa en "Síntomas de la avería". En octubre el área la quería igual al motivo del catálogo (`Intervalo de Mantenimiento Excedido`); **el 26/10/2026 se decidió lo contrario**: cada refacción lleva su porqué en texto libre, y el motivo del catálogo va sólo en el dictamen. No se puede corregir después, por eso se confirma en la tabla de parámetros antes de ejecutar.
 - Comentario estándar de rechazo publicado con "Enviar": *"Hola, excelente día. Compartimos resolución del expediente y se explica en el archivo adjunto como resolución."*
 - El Informe del conector salió con datos de pago en un rechazo; el técnico lo rehízo a mano (`RESOLUCIÓN 171469.pdf`). La receta correcta está en `05-redaccion-informes.md`.
 - Con el usuario de dirección la pantalla abrió en solo lectura: solo el técnico asignado o la cuenta del área operan la avería.
@@ -93,6 +93,12 @@ Rechazada en producción el 05/10/2026: la evidencia mostraba ruido del compreso
 ## 167311 — Bomba de dirección electrohidráulica, Oroch 2024 (FARRERA EXCELLENCE M2)
 
 Carta de diagnóstico del taller: la bomba recibe 12 V y señales, no genera presión por daño electrónico interno. Contrato sin lista de exclusiones ni periodo de espera para dirección (la cláusula 1 termina en el punto 9). 175 días y 2,429 km desde el inicio del contrato: no había servicio vencido. El área pidió el 18/09 pruebas eléctricas adicionales (DTC, activación, voltajes, amperaje, fluido) y el historial; sin respuesta. Caso tipo de **pendiente con mensaje al taller**: en pruebas se publicó un comentario con "Enviar" (`06/10/2026 15:24:36`) y una nota con "Uso Interno" (`15:25:45`); las dos aparecen iguales en el Seguimiento.
+
+## 177442 y 177608 — Primer cierre en producción con el flujo del conector (23/10/2026)
+
+**177442 — Rechazado.** AUDI A1 TFSI 2026 · contrato 797015 (NISSAN RENOVACION CALL CENTER) · componente: unidad de control de red de a bordo -J519, cargada por el taller como «UCH UNIDAD DE CONTROL DEL HABITÁCULO» (renglón 228367). La cláusula 1 lista literalmente los 7 componentes cubiertos y excluye los elementos internos del habitáculo; el protocolo midió 13.81 V («OK») y el DTC fue esporádico. Informe `RESOLUCIÓN 177442.pdf` (versión 9a6168f2, documentId 587257) subido con `subir_resolucion`; `rechazar_averia` con motivo «Componente No incluido en cobertura», sin `causas` (anterior a la regla del 26/10), plantilla de rechazo con «Enviar»; verificación todo OK; `Validación → No procede garantía` 16:23:18. **Patrón que enseña:** el nombre con que el taller carga el renglón («habitáculo») puede reforzar la exclusión; la ficha marcaba el contrato Cancelado un día después del registro de la avería y no cambió nada porque la vigencia cubría la fecha de avería.
+
+**177608 — Aceptado (llantas GarantiPlus).** HONDA HR-V 2027 · contrato 827309 (LLANTAS 8000) · llanta 225/55R18 con desgarre pasante en el flanco, DOT idéntico a las cuatro garantizadas, 228 km. La cláusula 3.1 excluye «los costos de colocación de las llantas de recambio»; **el técnico decidió incluir la mano de obra** ($734.48) «para evitar problemas» con el taller (fuente `Técnico`, 23/10/2026; decisión de ese folio, no regla: regla 15). Hubo tres versiones del Informe; se subió la tercera (1041ca7b, documentId 587295) con llanta $3,139.40 + M.O. $734.48 + IVA $619.82 = $4,493.70. `aprobar_averia` con `renglones: [{id: 228602, aceptar, cantidad 1, mo 734.48, precio 3139.40}]`, ATC No, plantilla de aceptación; verificación todo OK; `Validación → Aceptada` 16:45:43; SIGA añadió por su cuenta «Se notifica al taller la validación de sus datos fiscales y bancarios». **Patrones que enseña:** (1) los renglones de SIGA llevan los montos sin IVA cuando el presupuesto lo desglosa, y el Informe lleva el total con IVA: renglones + IVA = total; (2) la plantilla de procedente imprime «por un importe de hasta $8,000.00» (límite por llanta del certificado), y el importe real va en la tabla de valoración; (3) con la prompt v3 este cierre tomó seis mensajes del técnico (dos confirmaciones: subir y dictaminar); v4 lo deja en tres.
 
 ## Nota sobre numerales que el conector no encuentra
 
