@@ -1,6 +1,6 @@
 # Mecánica operativa de SIGA para el cierre de averías
 
-**Versión de este recurso: 2026-10-26 (v4: cierre en tres mensajes; `causas` por refacción siempre; una confirmación sobre la tabla de parámetros cubre subida y plan ensayado).** Quien edite este archivo actualiza aquí la fecha y la nota de qué cambió.
+**Versión de este recurso: 2026-10-26 (v4.2: el correo del técnico sale de la sesión; v4: cierre en tres mensajes; `causas` por refacción siempre; una confirmación sobre la tabla de parámetros cubre subida y plan ensayado).** Quien edite este archivo actualiza aquí la fecha y la nota de qué cambió.
 
 Referencia para el proyecto "Averías GarantiPlus — copiloto del técnico". Describe qué pantallas y botones existen en SIGA, qué hace cada uno, qué queda registrado y cómo se relaciona con el conector "Lector de Averías", tal como se verificó en el ambiente de pruebas (`pruebas.garantiplus.mx`) y en producción (`intranet.garantiplus.mx`) con cuentas del área de averías. Las dos tienen la misma estructura de pantallas; si algo difiere, prevalece lo que se ve en pantalla.
 
