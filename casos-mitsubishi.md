@@ -1,6 +1,6 @@
 # Criterios y documentos — programa Mitsubishi (plantilla `mitsubishi`)
 
-**Versión de este recurso: 2026-10-27 (v3: **la cuenta Mitsubishi entra en alcance** —sección 13—; el Informe sale con la cubierta y el rechazo Mitsubishi maquetados por el conector; la 10 se cita literal; v2: criterio operativo del área del 27/10/2026 incorporado completo; lista de precios en el conector).** Antes: 2026-10-26 (v1: preparado, con el certificado del programa y su numeración). Quien lo edite actualiza aquí la fecha y la nota de qué cambió.
+**Versión de este recurso: 2026-10-28 (v3.1: `buscar` en inglés —las descripciones de la lista vienen en inglés—; v3: **la cuenta Mitsubishi entra en alcance** —sección 13—; el Informe sale con la cubierta y el rechazo Mitsubishi maquetados por el conector; la 10 se cita literal; v2: criterio operativo del área del 27/10/2026 incorporado completo; lista de precios en el conector).** Antes: 2026-10-26 (v1: preparado, con el certificado del programa y su numeración). Quien lo edite actualiza aquí la fecha y la nota de qué cambió.
 
 > **La cuenta Mitsubishi está EN ALCANCE desde el 27/10/2026** (decisión de Omar; `instructions.md` §1). Un folio Mitsubishi se dictamina, se genera su Informe con la plantilla `mitsubishi` y se cierra en SIGA con el mismo flujo de tres mensajes de `instructions.md`, con las diferencias de la sección 13 de este archivo.
 
@@ -331,7 +331,7 @@ El MSRP sale de la **lista de precios mensual de Mitsubishi**, un Excel enorme (
 | Parámetro | Para qué |
 | --- | --- |
 | `numerosDeParte` | Lista de números de parte (todos los del presupuesto **en una sola llamada**). Coincidencia exacta, sin importar guiones, espacios, puntos ni mayúsculas. Si una fila tiene `SS`, sigue la sustitución (hasta 5 saltos) y enseña también la fila sustituta. Los que no aparecen, los nombra. Un número de parte repetido en el Excel sale en todos sus renglones con la nota «repetido en el Excel»: no se suma dos veces. |
-| `buscar` | Texto libre en todas las columnas de texto, sin acentos y tolerando los acentos dañados del Excel («cigüeñal» encuentra «Cig£e‹al»). Para cuando el presupuesto no trae número de parte. |
+| `buscar` | Texto libre en todas las columnas de texto, sin acentos y tolerando los acentos dañados del Excel («cigüeñal» encuentra «Cig£e‹al»). Para cuando el presupuesto no trae número de parte. Las descripciones vienen en inglés: se busca por el nombre en inglés de la pieza («WATER PUMP», no «bomba de agua»); las palabras pueden ir en cualquier orden. |
 | `filtros` | Columna + operador + valor (`contiene`, `igual`, `distinto`, `empieza`, `mayor`, `mayorIgual`, `menor`, `menorIgual`, `entre` con `hasta`, `vacio`, `noVacio`), por cualquier columna. |
 | `columnas` | Qué columnas enseñar. |
 | `ordenarPor` | Columna por la que ordenar. |
@@ -354,7 +354,7 @@ Flujo para actualizar: el técnico sube el Excel nuevo a «Precios Mitsubishi» 
 
 ### 6.5 Regla de uso en todo caso Mitsubishi procedente
 
-1. **Consulta única.** Con el presupuesto leído, llama `consultar_precios_mitsubishi` con `numerosDeParte` = **todos** los números de parte de las refacciones del presupuesto, en una sola llamada. Si una refacción no trae número de parte, se busca con `buscar` y se enseña lo encontrado como candidato, sin darlo por bueno: decide el técnico o se pide el número de parte al distribuidor.
+1. **Consulta única.** Con el presupuesto leído, llama `consultar_precios_mitsubishi` con `numerosDeParte` = **todos** los números de parte de las refacciones del presupuesto, en una sola llamada. Si una refacción no trae número de parte, se busca con `buscar` **en inglés** (como vienen las descripciones de la lista: «WATER PUMP», «BRAKE PAD», «CLUTCH DISC») y se enseña lo encontrado como candidato, sin darlo por bueno: decide el técnico o se pide el número de parte al distribuidor.
 2. **Lista correcta.** Lee la cabecera: mes y vigencia. Si la lista vigente no cubre la fecha de la valoración (es de un mes que no corresponde, o su vigencia ya terminó), **dilo al técnico** y sugiérele subir la nueva a la carpeta y pedir la actualización; no se valora en silencio con una lista vencida. Usar una lista anterior (`version`) es decisión del técnico.
 3. **Cotejo por refacción**, en una tabla en el chat: número de parte · descripción · cantidad · precio unitario del taller · MSRP · MSRP × 0.90 · diferencia · lectura. Se compara **en la misma base** (sin IVA contra sin IVA). Lecturas posibles:
    - Precio del taller = MSRP (salvo redondeo de centavos) → **se aplica el 10 %**: autorizado = MSRP × 0.90.
