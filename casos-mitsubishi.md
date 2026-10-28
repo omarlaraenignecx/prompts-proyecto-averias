@@ -1,8 +1,8 @@
 # Criterios y documentos — programa Mitsubishi (plantilla `mitsubishi`)
 
-**Versión de este recurso: 2026-10-27 (v2: criterio operativo del área del 27/10/2026 incorporado completo; lista de precios en el conector).** Antes: 2026-10-26 (v1: preparado, con el certificado del programa y su numeración). Quien lo edite actualiza aquí la fecha y la nota de qué cambió.
+**Versión de este recurso: 2026-10-27 (v3: **la cuenta Mitsubishi entra en alcance** —sección 13—; el Informe sale con la cubierta y el rechazo Mitsubishi maquetados por el conector; la 10 se cita literal; v2: criterio operativo del área del 27/10/2026 incorporado completo; lista de precios en el conector).** Antes: 2026-10-26 (v1: preparado, con el certificado del programa y su numeración). Quien lo edite actualiza aquí la fecha y la nota de qué cambió.
 
-> **La cuenta Mitsubishi sigue FUERA DE ALCANCE del proyecto** hasta que se abra (ver `instructions.md` §1 y la sección 13 de este archivo). Este recurso está preparado para cuando entre: mientras tanto, si el técnico nombra un folio Mitsubishi, la respuesta sigue siendo «Fuera de alcance por ahora (cuenta Mitsubishi)». Consultar o actualizar la lista de precios (sección 6) no es dictaminar una avería: si el técnico lo pide expresamente, se puede hacer aunque la cuenta siga fuera.
+> **La cuenta Mitsubishi está EN ALCANCE desde el 27/10/2026** (decisión de Omar; `instructions.md` §1). Un folio Mitsubishi se dictamina, se genera su Informe con la plantilla `mitsubishi` y se cierra en SIGA con el mismo flujo de tres mensajes de `instructions.md`, con las diferencias de la sección 13 de este archivo.
 
 Todo lo que el conector y el área saben del programa Mitsubishi. Tiene dos fuentes, y cada regla dice de cuál sale:
 
@@ -65,11 +65,11 @@ Consecuencias aquí: (a) si un dato de la póliza o de la carátula de la unidad
 ## 1. Qué es el programa y cómo se ve en SIGA
 
 - Es un **programa de garantía para unidades nuevas** vendidas por Mitsubishi Motors de México (producto «GARANTÍA REAL 7», certificado de febrero de 2019, vigente según el área). **No hay certificado individual por vehículo**: todas las averías comparten el condicionado del programa y el contrato en SIGA es el centinela **57227**.
-- La ficha de `expediente_completo` marca la cuenta como **MITSUBISHI (programa, sin contrato individual)** y la plantilla del Informe como `mitsubishi`. `averias_pendientes` las lista con esa etiqueta (hoy se omiten al mostrar la lista, por el alcance).
+- La ficha de `expediente_completo` marca la cuenta como **MITSUBISHI (programa, sin contrato individual)** y la plantilla del Informe como `mitsubishi`. `averias_pendientes` las lista con esa etiqueta.
 - Para el Informe, **`numeroContrato` es el `policyId`** de la avería (el `contractId` es siempre el 57227 y no se imprime). Coincide con el PDF del área: «Número de contrato: Póliza o encabezado de la avería» (sección 10.2).
 - La vigencia y el kilometraje de inicio no se pueden verificar contra un certificado individual: salen de la ficha de SIGA (póliza) o de una carátula de la unidad en el expediente y, si faltan, se dicen como «por confirmar»; nunca se inventan. El PDF exige «Vigencia confirmada» (checklist, punto 2): si no se puede confirmar con ninguna fuente, es un dato esencial faltante (sección 7.1, «Requiere información»), salvo que el técnico la confirme con otra fuente (fuente `Técnico`).
 - El condicionado que el conector entrega para estas averías es el **certificado del programa** transcrito en el Anexo, con su propia numeración (1–20). El motor de `generar_resolucion` con `plantilla: "mitsubishi"` transcribe los numerales de **ese** texto: un numeral que no exista ahí se rechaza.
-- Cubiertas del Informe: **`cubierta-mitsu.docx`** (procedente, con el cuadro de valoración) y **`cubierta-mitsu-sin-valoracion.docx`** (improcedente). Encabezado: sólo `numeroAveria`, `numeroContrato`, `fechaAveria`, `modelo`, `vin`, `kmAveria`, `fechaCierre` (sección 10).
+- Plantillas del Informe: **`cubierta-mitsu.docx`** (procedente: informe con el cuadro de valoración, carta de recepción del vehículo y las tres páginas para cobro) y **`rechazo-mitsu.docx`** (improcedente: sólo el informe, sin cuadro, sin carta y sin páginas de cobro). Encabezado: sólo `numeroAveria`, `numeroContrato`, `fechaAveria`, `modelo`, `vin`, `kmAveria`, `fechaCierre` (sección 10).
 
 ---
 
@@ -449,7 +449,7 @@ Mapa de ítems respecto del genérico (para traducir un razonamiento, nunca para
 
 Fusiona el flujo operativo del PDF (§7, nueve pasos, literales al inicio de cada paso) con la lectura del certificado (v1 §3) y las herramientas del conector. Es el mismo esqueleto de `instructions.md` §4 (revisar → generar → confirmar) con lo que cambia en Mitsubishi.
 
-1. **«Abrir la avería y confirmar que pertenece a Mitsubishi y al VIN correcto.»** `expediente_completo({ claimId })` (una llamada por folio). La ficha dice «MITSUBISHI (programa, sin contrato individual)», plantilla `mitsubishi`, contrato 57227 y el `policyId`. Se cruza el VIN de la ficha con los documentos (sección 2). Mientras la cuenta esté fuera de alcance, aquí se detiene todo.
+1. **«Abrir la avería y confirmar que pertenece a Mitsubishi y al VIN correcto.»** `expediente_completo({ claimId })` (una llamada por folio). La ficha dice «MITSUBISHI (programa, sin contrato individual)», plantilla `mitsubishi`, contrato 57227 y el `policyId`. Se cruza el VIN de la ficha con los documentos (sección 2).
 2. **«Descargar y revisar todos los documentos y evidencias disponibles.»** Todo lo que trajo `expediente_completo` (presupuesto, PRC, PQR, diagnóstico, odómetro, facturas y sellos de servicio, fotos, fotogramas de video); lo que quedó fuera, en una sola llamada a `leer_documento`; el audio de un video, con su enlace `/video`. No se dictamina con documentos sin leer. Se comprueba la documentación mínima (tabla 3.1).
 3. **«Leer el contrato aplicable y verificar vigencia, cobertura, exclusiones y obligaciones.»** Certificado del programa (Anexo) + póliza de SIGA (+ carátula si existe):
    - **Vigencia** (5.1; comunicación fuera de plazo → 14.5): con la póliza de la ficha o la carátula; si no se puede confirmar, sección 1.
@@ -474,7 +474,7 @@ Fusiona el flujo operativo del PDF (§7, nueve pasos, literales al inicio de cad
 
 > «La resolución debe conservar el formato Mitsubishi previamente aprobado. No cambiar encabezado, logotipo, colores, distribución, tipografía ni estructura salvo una instrucción expresa.»
 
-El conector ya usa las dos cubiertas del área: **`cubierta-mitsu.docx`** (procedente, con el cuadro de valoración) y **`cubierta-mitsu-sin-valoracion.docx`** (improcedente); elige según el `veredicto`. No se pide al conector otro formato, y si el técnico edita el Word (10.4) tampoco se toca nada de eso.
+El conector usa la cubierta Mitsubishi del área, con su banda negra, su logotipo y su cuadro de datos: **`cubierta-mitsu.docx`** en un procedente (informe con cuadro de valoración, carta de recepción y páginas de cobro) y **`rechazo-mitsu.docx`** en un improcedente (sólo el informe), igual que en GarantiPLUS; elige según el `veredicto`. Desde el 27/10/2026 las dos salen maquetadas para que el PDF se vea como el Word (antes el cierre se encimaba al cuadro y el rechazo arrastraba la carta y el listado de cobro). No se pide al conector otro formato, y si el técnico edita el Word (10.4) tampoco se toca nada de eso.
 
 ### 10.2 Campos y su fuente (PDF §7, tabla literal, con el campo del conector)
 
@@ -496,7 +496,7 @@ La cubierta Mitsubishi sólo tiene estos campos de encabezado: **`numeroAveria`,
 - **Procedente** («sin texto técnico de justificación»): `valoracion.partidas` sólo con lo autorizado (refacciones a MSRP × 0.90, mano de obra autorizada; más de cinco refacciones → un renglón «Refacciones» con la suma), `valoracion.iva` y `valoracion.totalConIva` (sección 6.2). **Sin `desarrollo` ni `numerales`.** El conector imprime sólo el cuadro, sin desglose en texto ni conceptos no cubiertos, que es lo que pide el PDF («No agregar un párrafo explicando por qué se acepta»; checklist «Aceptación sin justificación técnica innecesaria»). Se comprueba que el total escrito coincide con la suma del cuadro. Con el límite del libro azul de la cláusula 13 si el importe se acerca al valor del vehículo.
 - **Improcedente** («fundamento textual, numeral, evidencia y tabla cuando aplique»): `componente`, `causaBreve` y `desarrollo` con las fórmulas de `05-redaccion-informes.md`, cambiando la numeración y escribiendo «KM». `numerales` del Anexo: valen «14.3», «15.7», «11», «1»… y **no** valen «12.4» ni «13.8». La definición de AVERÍA/AS (cláusula 1, desde «Se entiende por avería mecánica…» hasta «…cualesquiera influencias externas.») y la **11** completa van en `clausulasLiterales` cuando se citan, igual que la 9 en GarantiPlus. El numeral de cierre del diagnóstico no cubierto es el **15.7**.
   - **Por mantenimiento**: `numerales: ["14.3"]` (añadir `"14.4"` si además hubo documentación requerida y no entregada en 72 h) + `clausulasLiterales` con la **11** literal (numeral «11», título «MANTENIMIENTOS PERIÓDICOS»). `causaBreve` (adaptada de 05 §4.1): «el historial de servicios proporcionado muestra un intervalo de mantenimiento excedido por {tiempo | kilometraje | tiempo y kilometraje}, según el análisis de intervalos mostrado más adelante. Esto ya que el programa estipula la realización de los mantenimientos del fabricante cada 6 meses o 10,000 KM, lo que ocurra primero, y está previsto en los artículos que se transcriben». `desarrollo`: el análisis de intervalos (10.4).
-  - **Por causa** (desgaste, fuga, morfología, daño externo): definición de la cláusula 1 en `clausulasLiterales` + `numerales` con el ítem de la 15 (15.3, 15.4, 15.5, 15.2, 15.18, 15.13…) + `"10"` para reforzar «deterioro y/o desgaste normal» (como 162031: 1, 10 y 15).
+  - **Por causa** (desgaste, fuga, morfología, daño externo): definición de la cláusula 1 en `clausulasLiterales` + `numerales` con el ítem de la 15 (15.3, 15.4, 15.5, 15.2, 15.18, 15.13…) + la **10** en `clausulasLiterales` (numeral «10», título «OBLIGACIONES DE GARANTIPLUS», su párrafo literal) para reforzar «deterioro y/o desgaste normal» (como 162031: 1, 10 y 15).
   - **Por proceso**: `numerales: ["14.1", "12.4"]` (desmontaje o trabajo previo) o `["14.4"]` (documentación no aportada en 72 h).
   - **Por componente excluido**: el inciso de la cláusula **2** que lo excluye, literal.
 - El cuerpo nunca cita el chat ni el Seguimiento; datos personales nunca.
@@ -576,7 +576,7 @@ El PDF exige, en todo rechazo por mantenimiento, «la tabla completa dentro de l
 
 ---
 
-## 13. Qué cambiará en el flujo cuando Mitsubishi entre en alcance
+## 13. El flujo con Mitsubishi en alcance (desde el 27/10/2026)
 
 Lo mismo de `instructions.md` (tres mensajes, tabla de parámetros, `causas` por refacción, `motivo` del catálogo), con estas diferencias:
 
@@ -587,11 +587,11 @@ Lo mismo de `instructions.md` (tres mensajes, tabla de parámetros, `causas` por
 5. La tabla de parámetros añade, según el caso, «Precio autorizado: MSRP −10 % (lista {mes})», «Visto bueno de Alexys» y «Autorización especial (> $100,000)», y el «Confirmo» no ejecuta sin ellos (7.3). El control de cambios de 7.4.
 6. El resultado 🟡 sigue la tabla 3.1 del área (incluidos los comprobantes de mantenimiento) y el comentario de 3.3.
 
-Antes de abrirlo hay que:
-- Cerrar en `pruebas` un rechazo y una aprobación Mitsubishi de punta a punta.
-- Tener publicadas y probadas las dos herramientas de precios, con la lista del mes cargada.
-- Decidir la brecha de la tabla de mantenimientos en rojo (10.4) y la de IVA (tensión 5).
-- Actualizar `instructions.md` (alcance en §1 y §4.0–4.1; §5.1 dice hoy «plantilla: aquí siempre `garantiplus`»; la regla de IVA; los pasos de visto bueno y autorización especial) y `01-mecanica-siga.md` (las dos herramientas de precios en la sección del conector).
+Al abrirlo (27/10/2026) quedó así lo que esta sección pedía antes:
+- Las dos herramientas de precios, publicadas en producción con la lista de octubre cargada.
+- `instructions.md` (v4.4) y `01-mecanica-siga.md` ya tratan a Mitsubishi como cuenta en alcance.
+- El conector genera el Informe Mitsubishi maquetado (cubierta y rechazo). Sigue sin dibujar la tabla de mantenimientos en rojo: se hace como dice 10.4.
+- Pendiente: cerrar un rechazo y una aprobación Mitsubishi de punta a punta en `pruebas` (el primer caso real se revisa con especial cuidado), y las dudas de la sección 12.
 
 ---
 
