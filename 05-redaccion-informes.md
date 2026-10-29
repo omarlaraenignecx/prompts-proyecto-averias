@@ -1,5 +1,7 @@
 # Cómo se redacta el Informe de Resolución, al estilo del área
 
+**Versión de este recurso: 2026-10-28 (v2: la tabla de intervalos de mantenimiento la imprime el conector con `mantenimientos`; `desarrollo` queda para el párrafo del dictamen; ejemplo 171469 actualizado. Antes sin versión.)** Quien lo edite actualiza aquí la fecha y la nota de qué cambió.
+
 El Informe es el documento que se sube a SIGA y que recibe el taller. Tiene que leerse como los que escribe el área, no como un resumen del chat. Esta guía sale de comparar resoluciones reales (157279, 159886, 160942, 161239, 162130, 162229, 162262, 162922, 163912, 164143, 164276, 171469 y las aceptadas 160579, 161305, 161833, 162526, 162559, 163549, 165694) con lo que genera el conector.
 
 El generador no decide nada: recibe una decisión ya acordada con el técnico y la convierte en un documento verificable. Todo lo que entra (datos, cláusulas, importes) tiene fuente en el expediente; nada se inventa ni se completa por inferencia.
@@ -44,11 +46,22 @@ Tú solo controlas 3, 4 y 5. Ahí está toda la calidad.
 `causaBreve`:
 > el historial de servicios proporcionado muestra un intervalo de mantenimiento excedido por {tiempo | kilometraje}, según el análisis de intervalos mostrado más adelante. Esto ya que dicho contrato estipula la realización de servicios cada {10,000 km o 6 meses | 12,000 km o 12 meses}, lo que ocurra primero, y está previsto en los artículos que se transcriben
 
-`desarrollo` (una línea por renglón; es el sustituto de la tabla "ANÁLISIS DE INTERVALOS" que el área pega como imagen):
-1. "ANÁLISIS DE INTERVALOS DE MANTENIMIENTO {M1|M2} – {MARCA MODELO}, VIN {vin}. Intervalo establecido por {el fabricante | GarantiPlus}: {12 meses o 12,000 km | 6 meses o 10,000 km}, lo que ocurra primero."
-2. "{Primera factura | Inicio de garantía}: {fecha} con {km} km."
-3. Un renglón por servicio: "Servicio {n}: {fecha} con {km} km. Recorrido desde el anterior: {km} km en {días} días.{ EXCEDIDO EN KILOMETRAJE | EXCEDIDO EN TIEMPO}"
-4. Último renglón, la avería: "Avería: {fecha} con {km} km. Transcurrieron {días} días y {km} km desde el último servicio{ sin ningún servicio acreditado}: {INTERVALO EXCEDIDO EN TIEMPO | cumple}."
+`mantenimientos` (**la tabla**; desde el 28/10/2026 la imprime el conector tras la frase de dictamen, con la cabecera «ANÁLISIS DE INTERVALOS DE MANTENIMIENTO», la marca, el modelo y el VIN del encabezado, el intervalo y las columnas FECHA · KM · DIAS · OBS · RECORRIDO; DIAS y RECORRIDO los calcula él):
+```json
+"mantenimientos": {
+  "intervalo": { "meses": 6, "km": 10000 },
+  "servicios": [
+    { "fecha": "2026-01-30", "km": 108956 },
+    { "fecha": "2026-05-12", "km": 111400 },
+    { "fecha": "2026-10-02", "km": 113122, "obs": "EXCEDIDO TIEMPO +113 DÍAS" }
+  ]
+}
+```
+- Filas: la primera es la primera factura (nuevo) o el inicio de garantía (seminuevo), con su km; una por servicio acreditado; **la última es la avería** con su fecha y su km. Entre 2 y 40, en orden cronológico, cada una con `fecha` y `km` (un servicio sin alguno de los dos no es fila: se nombra en el chat y se pide). Sólo en improcedente.
+- `obs` la marca el técnico (Claude la propone con la tolerancia de la cuenta: `casos-garantiplus.md` §13 o `casos-mitsubishi.md` §4.2): ≤ 40 caracteres, una línea, sin `{}` ni `|`: `EXCEDIDO KM +2,450`, `EXCEDIDO TIEMPO +41 DÍAS`, `EXCEDIDO KM Y TIEMPO`; en la última fila, `KM AVERÍA`. Un tramo dentro de la tolerancia **no lleva `obs`** aunque el conector avise que supera el intervalo base.
+- El conector pinta en rojo la OBS y, si la aritmética lo respalda, RECORRIDO (km) o DIAS (tiempo). Su respuesta enseña la tabla en «## Análisis de intervalos de mantenimiento»: cotéjala.
+
+`desarrollo` (un párrafo; ya no se escribe la tabla línea por línea): "Del análisis de los comprobantes de mantenimiento se identificó que entre el servicio registrado el {fecha anterior} con {km} km y {el servicio registrado el {fecha} | la avería del {fecha}} con {km} km transcurrieron {días} días y se recorrieron {km} km. El contrato establece un intervalo de {10,000 km o 6 meses | 12,000 km o 12 meses}, lo que ocurra primero, {con una tolerancia de 1,000 km o 30 días}. Por lo tanto, el intervalo se excedió en {km} km y/o {días} días."
 
 `numerales: ["12.3"]` (añade `"12.4"` si además hubo documentación requerida y no entregada en 72 h) + `clausulasLiterales` con la cláusula 9 completa como se indica en la sección 3. Sin más `desarrollo`.
 
@@ -103,7 +116,7 @@ Cláusulas: `clausulasLiterales` con el inciso de la cláusula 1 que lo excluye 
 3. La frase de dictamen se lee de corrido y empieza con "reemplazo de…" / "sustitución de…".
 4. El cuerpo no menciona el chat, el Seguimiento, "Supuesto", fuentes entre paréntesis ni viñetas.
 5. Las cláusulas están completas, sin "(...)", y son las del certificado de este caso (numeración de este producto).
-6. En mantenimiento: aparece el análisis de intervalos con todos los servicios y la avería; los días y km cuadran con los comprobantes.
+6. En mantenimiento: la tabla del conector trae todos los servicios y la avería; los días y km cuadran con los comprobantes; las `obs` en rojo son las que marcó el técnico y ninguna cae dentro de la tolerancia.
 7. En procedente: solo partidas autorizadas (consolidadas si son muchas); suman el total; el total es el que irá a los renglones de SIGA; nada de "Detalle de otros conceptos" ni "Conceptos no cubiertos".
 8. El veredicto del documento (`procedente` / `improcedente`) coincide con el color del veredicto acordado con el técnico.
 9. El definitivo se abrió en el navegador y el técnico dijo que sí.
@@ -113,9 +126,10 @@ Cláusulas: `clausulasLiterales` con el inciso de la cláusula 1 que lo excluye 
 Parámetros de `generar_resolucion`:
 - `claimId` 171469 · `plantilla` garantiplus · `veredicto` improcedente · `componente` "reemplazo de transmisión"
 - `causaBreve`: "el historial de servicios proporcionado muestra un intervalo de mantenimiento excedido por tiempo, según el análisis de intervalos mostrado más adelante. Esto ya que dicho contrato estipula la realización de servicios cada 10,000 km o 6 meses, lo que ocurra primero, y está previsto en los artículos que se transcriben"
-- `desarrollo`: ["ANÁLISIS DE INTERVALOS DE MANTENIMIENTO M2 – CHEVROLET AVEO, VIN LSGHD52H5LD031639. Intervalo establecido por GarantiPlus: 6 meses o 10,000 km, lo que ocurra primero.", "Inicio de garantía: 30/01/2026 con 108,956 km.", "Avería: 02/10/2026 con 113,122 km. Transcurrieron 245 días (8 meses y 2 días) y 4,166 km desde el inicio de garantía sin ningún servicio de mantenimiento acreditado: INTERVALO EXCEDIDO EN TIEMPO."]
+- `mantenimientos`: `{ intervalo: { meses: 6, km: 10000 }, servicios: [{ fecha: "2026-01-30", km: 108956 }, { fecha: "2026-10-02", km: 113122, obs: "EXCEDIDO TIEMPO +64 DÍAS" }] }` (30/01 + 6 meses = 30/07/2026; del 30/07 al 02/10 van 64 días; 245 días en total, sin ningún servicio acreditado). El conector imprime la tabla con el título, «CHEVROLET AVEO LSGHD52H5LD031639», el intervalo, la fila de inicio y la de la avería con 245 días y 4,166 km, la OBS y DIAS en rojo.
+- `desarrollo`: ["Del análisis de los comprobantes de mantenimiento se identificó que entre el inicio de garantía del 30/01/2026 con 108,956 km y la avería del 02/10/2026 con 113,122 km transcurrieron 245 días y se recorrieron 4,166 km sin ningún servicio de mantenimiento acreditado. El contrato establece un intervalo de 10,000 km o 6 meses, lo que ocurra primero, con una tolerancia de 1,000 km o 30 días. Por lo tanto, el intervalo se excedió en tiempo."]
 - `numerales`: ["12.3"]
 - `clausulasLiterales`: [{numeral "9", titulo "MANTENIMIENTOS PERIÓDICOS", texto = párrafo de entrada + inciso SEMINUEVOS + inciso del carnet + "El incumplimiento de cualquiera de los requisitos anteriores invalidará este contrato.", copiados del certificado 679982}]
 - `encabezado`: 171469 · 679982 · EXCELLENCE SEDANES GM M2 12 · CHEVROLET · AVEO · LSGHD52H5LD031639 · 2026-01-30 · 2026-10-02 · 2026-10-06 · 108956 · 113122
 
-Resultado: dos páginas, 12.3 primero, cláusula 9 completa, cierre "no procede". Es el mismo contenido que el PDF que redactó el técnico para ese folio. Flujo completo: definitivo abierto en el navegador → "¿Lo subo a SIGA?" → "Sí" → `subir_resolucion` sin confirmar y, con la misma versión, con `confirmar: true` → recargar `Details/171469` y ver `RESOLUCIÓN 171469.pdf` → resumen de cierre → renglones, comentario y dictamen en `Edit/171469`.
+Resultado: frase de dictamen, tabla de intervalos, párrafo, 12.3 primero, cláusula 9 completa, cierre "no procede". Es el mismo contenido que el PDF que redactó el técnico para ese folio. Flujo completo: definitivo abierto en el navegador → "¿Lo subo a SIGA?" → "Sí" → `subir_resolucion` sin confirmar y, con la misma versión, con `confirmar: true` → recargar `Details/171469` y ver `RESOLUCIÓN 171469.pdf` → resumen de cierre → renglones, comentario y dictamen en `Edit/171469`.
