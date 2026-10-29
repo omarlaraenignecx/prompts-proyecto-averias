@@ -52,13 +52,12 @@ Tú solo controlas 3, 4 y 5. Ahí está toda la calidad.
   "intervalo": { "meses": 6, "km": 10000 },
   "servicios": [
     { "fecha": "2026-01-30", "km": 108956 },
-    { "fecha": "2026-05-12", "km": 111400 },
-    { "fecha": "2026-10-02", "km": 113122, "obs": "EXCEDIDO TIEMPO +113 DÍAS" }
+    { "fecha": "2026-10-02", "km": 113122, "obs": "KM AVERÍA · EXCEDIDO TIEMPO +64 DÍAS" }
   ]
 }
 ```
 - Filas: la primera es la primera factura (nuevo) o el inicio de garantía (seminuevo), con su km; una por servicio acreditado; **la última es la avería** con su fecha y su km. Entre 2 y 40, en orden cronológico, cada una con `fecha` y `km` (un servicio sin alguno de los dos no es fila: se nombra en el chat y se pide). Sólo en improcedente.
-- `obs` la marca el técnico (Claude la propone con la tolerancia de la cuenta: `casos-garantiplus.md` §13 o `casos-mitsubishi.md` §4.2): ≤ 40 caracteres, una línea, sin `{}` ni `|`: `EXCEDIDO KM +2,450`, `EXCEDIDO TIEMPO +41 DÍAS`, `EXCEDIDO KM Y TIEMPO`; en la última fila, `KM AVERÍA`. Un tramo dentro de la tolerancia **no lleva `obs`** aunque el conector avise que supera el intervalo base.
+- `obs` la marca el técnico (Claude la propone con la tolerancia de la cuenta: `casos-garantiplus.md` §13 o `casos-mitsubishi.md` §4.2): ≤ 40 caracteres, una línea, sin `{}` ni `|`: `EXCEDIDO KM +2,450`, `EXCEDIDO TIEMPO +41 DÍAS`, `EXCEDIDO KM Y TIEMPO`; en la última fila, `KM AVERÍA` y, si ese tramo es el que excede, `KM AVERÍA · EXCEDIDO TIEMPO +64 DÍAS`. El exceso se mide contra el intervalo base (10,000 km / 6 meses de calendario); la tolerancia decide si lleva `obs`, no la cifra. Un tramo dentro de la tolerancia **no lleva `obs`** aunque el conector avise que supera el intervalo base.
 - El conector pinta en rojo la OBS y, si la aritmética lo respalda, RECORRIDO (km) o DIAS (tiempo). Su respuesta enseña la tabla en «## Análisis de intervalos de mantenimiento»: cotéjala.
 
 `desarrollo` (un párrafo; ya no se escribe la tabla línea por línea): "Del análisis de los comprobantes de mantenimiento se identificó que entre el servicio registrado el {fecha anterior} con {km} km y {el servicio registrado el {fecha} | la avería del {fecha}} con {km} km transcurrieron {días} días y se recorrieron {km} km. El contrato establece un intervalo de {10,000 km o 6 meses | 12,000 km o 12 meses}, lo que ocurra primero, {con una tolerancia de 1,000 km o 30 días}. Por lo tanto, el intervalo se excedió en {km} km y/o {días} días."
@@ -126,7 +125,7 @@ Cláusulas: `clausulasLiterales` con el inciso de la cláusula 1 que lo excluye 
 Parámetros de `generar_resolucion`:
 - `claimId` 171469 · `plantilla` garantiplus · `veredicto` improcedente · `componente` "reemplazo de transmisión"
 - `causaBreve`: "el historial de servicios proporcionado muestra un intervalo de mantenimiento excedido por tiempo, según el análisis de intervalos mostrado más adelante. Esto ya que dicho contrato estipula la realización de servicios cada 10,000 km o 6 meses, lo que ocurra primero, y está previsto en los artículos que se transcriben"
-- `mantenimientos`: `{ intervalo: { meses: 6, km: 10000 }, servicios: [{ fecha: "2026-01-30", km: 108956 }, { fecha: "2026-10-02", km: 113122, obs: "EXCEDIDO TIEMPO +64 DÍAS" }] }` (30/01 + 6 meses = 30/07/2026; del 30/07 al 02/10 van 64 días; 245 días en total, sin ningún servicio acreditado). El conector imprime la tabla con el título, «CHEVROLET AVEO LSGHD52H5LD031639», el intervalo, la fila de inicio y la de la avería con 245 días y 4,166 km, la OBS y DIAS en rojo.
+- `mantenimientos`: `{ intervalo: { meses: 6, km: 10000 }, servicios: [{ fecha: "2026-01-30", km: 108956 }, { fecha: "2026-10-02", km: 113122, obs: "KM AVERÍA · EXCEDIDO TIEMPO +64 DÍAS" }] }` (30/01 + 6 meses = 30/07/2026; del 30/07 al 02/10 van 64 días, más de los 30 de tolerancia; 245 días en total, sin ningún servicio acreditado). El conector imprime la tabla con el título, «CHEVROLET AVEO LSGHD52H5LD031639», el intervalo, la fila de inicio y la de la avería con 245 días y 4,166 km, la OBS y DIAS en rojo.
 - `desarrollo`: ["Del análisis de los comprobantes de mantenimiento se identificó que entre el inicio de garantía del 30/01/2026 con 108,956 km y la avería del 02/10/2026 con 113,122 km transcurrieron 245 días y se recorrieron 4,166 km sin ningún servicio de mantenimiento acreditado. El contrato establece un intervalo de 10,000 km o 6 meses, lo que ocurra primero, con una tolerancia de 1,000 km o 30 días. Por lo tanto, el intervalo se excedió en tiempo."]
 - `numerales`: ["12.3"]
 - `clausulasLiterales`: [{numeral "9", titulo "MANTENIMIENTOS PERIÓDICOS", texto = párrafo de entrada + inciso SEMINUEVOS + inciso del carnet + "El incumplimiento de cualquiera de los requisitos anteriores invalidará este contrato.", copiados del certificado 679982}]

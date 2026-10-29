@@ -249,18 +249,18 @@ Cada fila dice los dos textos y la lectura más favorable al beneficiario que al
 | --- | --- | --- | --- |
 | **Soportes de motor y de transmisión** | 2.9 excluye «elementos que hayan perdido su morfología inicial (bujes, gomas, soportes, juntas)»; 15.4 repite | PARTES CUBIERTAS lista «Soportes del motor» y «Soportes de transmisión» | **Cubiertos** cuando fallan por rotura, defecto o antes de lo que su kilometraje hace esperar; **excluidos** sólo si la causa probada es pérdida de morfología por envejecimiento normal (goma vencida, agrietada por años) y el diagnóstico lo dice. En duda, cubierto. |
 | **Juntas y sellos (retenes)** | 2.8 «juntas» como consumible; 15.4 «juntas, mangueras, retenes» que perdieron morfología; 15.5 «fugas de aceite» | PARTES CUBIERTAS: «Juntas y sellos de todos los componentes anteriores» (motor, transeje, ejes, diferenciales) | **Cubiertas** cuando son parte de la reparación de un componente cubierto o fallan por defecto (un retén que se vence prematuramente y deja sin aceite un componente cubierto); **excluidas** como consumible de un servicio periódico o cuando la fuga es la única falla y la pieza llegó al final de su vida útil (15.3). |
-| **Banda de distribución** | 2.8 «correas»; 15.5 «correas de distribución»; 15.8 excluye «avería del motor originada por la falla de banda de distribución» | PARTES CUBIERTAS: «Banda de Distribución y piezas relacionadas»; programa S13: reemplazo a 100,000 km (L200 y Montero Sport) | La **banda** como pieza es cubierta si falla por defecto antes de su intervalo de reemplazo (100,000 km) con mantenimiento acreditado. El **motor dañado por su falla** sigue excluido por 15.8, **salvo** que la banda haya fallado dentro de su intervalo de reemplazo y con el plan cumplido: entonces la causa es un defecto de la pieza cubierta y la avería consecuente se valora con ella (lectura flexible; se dice como tal y decide el técnico). |
+| **Banda de distribución** | 2.8 «correas»; 15.5 «correas de distribución»; 15.8 excluye «avería del motor originada por la falla de banda de distribución» | PARTES CUBIERTAS: «Banda de Distribución y piezas relacionadas»; pero MANTENIMIENTO lista «Banda / Cadena de tiempo» como reemplazo de desgaste no cubierto; programa S13: reemplazo a 100,000 km (L200 y Montero Sport) | La **banda** como pieza es cubierta si falla por defecto antes de su intervalo de reemplazo (100,000 km) con mantenimiento acreditado. El **motor dañado por su falla** sigue excluido por 15.8, **salvo** que la banda haya fallado dentro de su intervalo de reemplazo y con el plan cumplido: entonces la causa es un defecto de la pieza cubierta y la avería consecuente se valora con ella (lectura flexible; se dice como tal y decide el técnico). |
 | **Mangueras** (A/C, refrigerante, frenos) | 15.4 excluye mangueras que perdieron su morfología; 15.5 fugas de refrigerante | PARTES CUBIERTAS no las lista; el criterio del área (PDF 27/10/2026) cubre portalentes y mangueras de A/C | **Cubiertas** por defecto, por indicación de MMDM (`casos-mitsubishi.md` §5.3) y por 1.5; excluidas sólo si la pérdida de morfología por envejecimiento normal está probada. |
 | **Batería 12 V** | 2.8 y 15.5 la excluyen | Garantizada 24 meses desde el inicio | **Cubierta hasta 24 meses** por defecto de fabricación (no por descarga por uso o abandono); después, excluida. |
 | **Bujías de platino o iridio** | 2.8, 15.5 «bujías» | CONSUMIBLES excluye bujía «excluyendo Platino o Iridio tipo de enchufe con punta» | **Cubiertas** si fallan por defecto antes de su intervalo (S13: 90,000–100,000 km); las convencionales, consumible. |
 | **Estéreo / Smart Display Audio** | 1.5 (elemento electrónico) | Estéreos: garantía directa del fabricante; Smart Display Audio: 3 años / 60,000 km | Dentro de 3 años / 60,000 km, **cubierto**; fuera, se orienta al distribuidor para la garantía directa del fabricante, y el Informe lo dice en vez de llamarlo «excluido» sin más. |
-| **Amortiguadores** | 2.8, 15.5 | MANTENIMIENTO: «Amortiguadores desgastados» | Excluidos como desgaste; **cubiertos** si fallan por defecto (fuga prematura, rotura del vástago) con kilometraje bajo y sin daño externo. |
+| **Amortiguadores** | 2.8, 15.5 (por lista) | MANTENIMIENTO: sólo «Amortiguadores desgastados» | Excluidos por 2.8 y 15.5. La póliza sólo excluye los desgastados, así que un amortiguador roto por defecto con kilometraje bajo es una lectura flexible **pendiente de confirmar con Omar**; mientras tanto, excluido y se dice. |
 | **Discos y balatas; embrague** | 2.8, 15.5 | CONSUMIBLES; MANTENIMIENTO | Consumibles: excluidos. El **volante o placa de mando** sí está cubierto (PARTES CUBIERTAS). |
-| **Catalizador, DPF, escape** | 2.8 «escapes»; 15.5 «escapes, catalizadores» | PARTES CUBIERTAS: «Múltiple de admisión y escape»; control de emisiones en el programa | Múltiple de escape **cubierto**; catalizador y DPF cubiertos si fallan por defecto (rotura interna, panal fundido sin causa externa) y no por combustible contaminado (15.22) ni por seguir circulando con testigo (15.13). |
+| **Catalizador, DPF, escape** | 2.8 «escapes»; 15.5 «escapes, catalizadores» | PARTES CUBIERTAS: «Múltiple de admisión y escape» | Múltiple de escape **cubierto** (la póliza lo lista). Catalizador, DPF y silenciadores **excluidos** por 2.8 y 15.5: la póliza no los nombra como cubiertos y el «defensa a defensa» genérico no vence una exclusión expresa del certificado. Si el técnico quiere cubrir un catalizador por defecto de fábrica, es decisión suya (fuente `Técnico`). |
 | **Sensores de O2 / EGT, sensores en general** | 1.5 | «defensa a defensa» | **Cubiertos**; el sensor EGT aunque el presupuesto lo rotule como O2 (`casos-mitsubishi.md` §5.3). |
 | **Turbocompresor** | 1.5 | PARTES CUBIERTAS | **Cubierto**; excluido sólo con prueba de falta de lubricación por mantenimiento no hecho o aceite contaminado. |
 | **Carga de A/C** | 2.8 «salvo que sea necesario por avería cubierta» | — | Cubierta cuando forma parte de la reparación de un componente de clima cubierto. |
-| **Fusibles, focos, plumas, filtros** | 2.8 | CONSUMIBLES | Excluidos (salvo faros de haz sellado, halógeno y de descarga, que la póliza no considera consumible: cubiertos si fallan por defecto). |
+| **Fusibles, focos, plumas, filtros, faros** | 2.6, 2.8 | CONSUMIBLES | Excluidos. Los faros de haz sellado, halógeno y de descarga no son consumible para la póliza, pero 2.6 excluye «Faros» por lista: excluidos. |
 
 ### 5.4 Elementos que no están en ninguna lista
 
@@ -284,7 +284,7 @@ Un componente que no aparece en 2.1–2.9 ni en las listas de la póliza **está
 
 | Causal | Qué evidencia hace falta | Lectura |
 | --- | --- | --- |
-| 14.1 trabajos antes de la resolución | Constancia de que el taller desmontó, reparó o intervino antes de la resolución **sin** que GarantiPlus lo requiriera (12.4): fotos de piezas ya desmontadas sin solicitud de desmontaje, factura de reparación previa, Seguimiento. | Se aplica cuando está probado y el trabajo impide determinar la causa o ya consumó la reparación. Un desmontaje requerido por GarantiPlus o autorizado por el propietario para diagnosticar (12.4, segunda frase) **no** es 14.1. El diagnóstico por lectura de códigos, prueba de manejo o inspección visual no es «trabajo sobre el vehículo». |
+| 14.1 trabajos antes de la resolución | Constancia de que el taller desmontó, reparó o intervino antes de la resolución **sin** que GarantiPlus lo requiriera (12.4): fotos de piezas ya desmontadas sin solicitud de desmontaje, factura de reparación previa, Seguimiento. | Se aplica cuando está probado (0.3, regla 5: no se relaja). Un desmontaje **requerido por GarantiPlus y autorizado por el propietario** para determinar el origen (12.4) **no** es 14.1. El diagnóstico por lectura de códigos, prueba de manejo o inspección visual no es «trabajo sobre el vehículo». |
 | 14.2 no inmovilizado | Prueba de que circuló entre la comunicación y la resolución (odómetro distinto, salida del taller). | Se aplica con prueba. |
 | 14.3 mantenimientos no cumplidos | La tabla de intervalos (sección 8) con un tramo **fuera de los rangos del Manual** (más de 6,000 km o más de 186 días), o un desfase en rangos 2–3 en el que el cliente o el distribuidor declinaron la Carta Compromiso o la Reactivación. | Es la causal del rechazo por mantenimiento; se cita con la 11 literal. **No** se aplica por un desfase dentro de los rangos del Manual, ni por un desfase antiguo subsanado (8.4), ni sin comprobantes (se piden primero). |
 | 14.4 documentación no aportada en 72 h | Requerimiento formal al distribuidor (comentario en SIGA con fecha) y 72 h transcurridas sin respuesta. | Sólo tras requerimiento formal; el técnico decide. Un comentario sin fecha de requerimiento no basta. |
@@ -479,7 +479,7 @@ Estos rangos **sustituyen** a la tolerancia de 1 mes / 1,000 KM del criterio del
 | --- | --- | --- | --- | --- |
 | 0 | En intervalo | Cumple | Comprobante del servicio | 🟢 |
 | 1–1,000 km **o** 1–31 días | 1 · Tolerancia | «la garantía procederá … en términos y condiciones de la garantía básica» | Comprobante del servicio | 🟢 (sin carta ni trámite) |
-| 1,001–2,000 km **o** 32–62 días | 2 · Carta Compromiso | Procede «bajo los términos y condiciones de “Carta Compromiso”» firmada por el cliente | La Carta Compromiso de **ese** VIN y **ese** desfase, firmada | 🟢 si la carta está en el expediente; 🟡 pidiéndola al distribuidor si no está (nunca 🔴 por este rango) |
+| 1,001–2,000 km **o** 32–62 días | 2 · Carta Compromiso | Procede «bajo los términos y condiciones de “Carta Compromiso”» firmada por el cliente | La Carta Compromiso de **ese** VIN y **ese** desfase, firmada | 🟢 si la carta está en el expediente; 🟡 pidiéndola al distribuidor si no está (nunca 🔴 por falta de carta); 🔴 por 14.3 sólo si el cliente la declina expresamente |
 | 2,001–6,000 km **o** 63–186 días | 3 · Reactivación | «acreedores al programa “Reactivación de Garantía”» (8.5) | Carta de Reactivación firmada + checklist aprobado + servicio de mantenimiento correspondiente (+ reacondicionamiento si aplica) | 🟢 cuando la reactivación consta (y la avería del folio se paga al **100 %**); 🟡 «candidato a Reactivación» mientras corre el proceso (el folio se queda en Validación con el comentario al distribuidor); 🔴 por 14.3 sólo si el distribuidor o el cliente declinan la reactivación, o si hay reincidencia acreditada |
 | > 6,000 km **o** > 186 días | 4 · Fuera de rango | «Vehículos fuera del rango de desfase permitido» quedan excluidos del programa | — | 🔴 por 14.3 con la 11 (y la tabla en el Informe) |
 
@@ -515,7 +515,7 @@ Estos rangos **sustituyen** a la tolerancia de 1 mes / 1,000 KM del criterio del
 
 ### 8.6 Qué cuenta como servicio y qué lo acredita
 
-- **Un servicio** es una visita de mantenimiento del plan (8.3) con fecha y kilometraje: cambio de aceite y filtro y las inspecciones o reemplazos de esa columna. Un cambio de aceite suelto en una fecha cuenta como servicio para medir el intervalo (es la operación cardinal del plan); que faltaran operaciones de la columna no convierte el tramo en desfase, aunque pueda ser causa de una exclusión específica (Póliza MMDM — DAÑO CAUSADO POR MANTENIMIENTO INCORRECTO…) si esa omisión produjo la falla y está probado.
+- **Un servicio** es una visita de mantenimiento del plan (8.3) con fecha y kilometraje: cambio de aceite y filtro y las inspecciones o reemplazos de esa columna. Un cambio de aceite y filtro con fecha y kilometraje cuenta como servicio para medir el intervalo (es la operación cardinal del plan; lectura del diseño, **pendiente de confirmar con Omar**); que faltaran operaciones de la columna no convierte el tramo en desfase, aunque pueda ser causa de una exclusión específica (Póliza MMDM — DAÑO CAUSADO POR MANTENIMIENTO INCORRECTO…) si esa omisión produjo la falla y está probado.
 - **Lo acredita** cualquiera de: factura con los datos de 12.3.d (taller, vehículo con marca, modelo, placa y kilómetros, trabajos desglosados, fecha y firma o sello, fecha de entrega); sello del cuaderno de registros con fecha, KM y OR; orden de reparación del distribuidor; historial de servicio del distribuidor o de MMDM; los servicios consignados en el PRC. Si un mismo servicio aparece en varios documentos, es uno (no se duplica); si dos fuentes dan fecha o km distintos para el mismo servicio, se enseñan los dos y decide el técnico.
 - **Servicio en taller independiente** (decisión del diseño): la póliza MMDM condiciona *su* garantía y la transferencia a que el mantenimiento se haga «en un Distribuidor de Mitsubishi Motors»; el certificado de GarantiPlus **no** lo exige (9.3, 11 y 12.3.d hablan del fabricante y de facturas). Para este contrato, **una factura de taller independiente con los datos de 12.3.d acredita el servicio**; se dice en el veredicto que el servicio no fue en distribuidor, y el técnico decide si lo lleva a Alexys.
 - **Sin ningún comprobante:** no es incumplimiento (7.3); se piden una vez con el comentario de `casos-mitsubishi.md` §4.5; si tras requerimiento formal no llegan en 72 h, 14.4 a decisión del técnico.
@@ -543,7 +543,7 @@ Estos rangos **sustituyen** a la tolerancia de 1 mes / 1,000 KM del criterio del
 - **12.11** En el caso de que el presupuesto de reparación de la AVERÍA/AS realizado por el taller sea superior al valor de la reparación autorizada por GARANTIPLUS MÉXICO, S.A.P.I. DE C.V., el BENEFICIARIO podrá optar por: i) Llevar el VEHÍCULO al taller que le indique GARANTIPLUS MÉXICO, S.A.P.I. DE C.V. para realizar la reparación tal como la misma haya sido autorizada en el informe de resolución del expediente, corriendo a costa del BENEFICIARIO todos los gastos de desplazamiento del VEHÍCULO, o ii)Reparar el VEHÍCULO según el presupuesto del taller. En este caso, el BENEFICIARIO deberá aceptar expresamente y por escrito que la diferencia entre el presupuesto dado por el taller y la valoración de la reparación de la AVERÍA/AS autorizada por GARANTIPLUS MÉXICO, S.A.P.I. DE C.V., correrá íntegramente a su cargo. En este caso, el taller deberá confeccionar dos facturas, una por un importe igual a la valoración de la reparación de la AVERÍA/AS autorizada por GARANTIPLUS MÉXICO, S.A.P.I. DE C.V., que deberá entregar a GARANTIPLUS MÉXICO, S.A.P.I. DE C.V.; y otra, que deberá entregar al BENEFICIARIO, por la diferencia asumida por éste.
 - **12.12** GARANTIPLUS MÉXICO, S.A.P.I. DE C.V., se reserva el derecho a utilizar los medios de reparación que considere oportunos, así como el derecho a proporcionar las piezas que deban sustituirse o repararse en la reparación autorizada.
 
-**Lectura flexible del procedimiento:** la comunicación se da por hecha con el registro de la avería en SIGA por el distribuidor (el distribuidor hace de taller y de enlace del beneficiario); el presupuesto «sin intervenir ni desmontar» se lee como en `casos-garantiplus.md` (un desmontaje para diagnosticar, requerido o autorizado, no es 14.1); el plazo de 48 horas de 12.5 obliga a GarantiPlus, no al distribuidor; las 72 h de 14.4 corren desde un requerimiento formal.
+**Lectura flexible del procedimiento:** la comunicación se da por hecha con el registro de la avería en SIGA por el distribuidor (el distribuidor hace de taller y de enlace del beneficiario); el presupuesto «sin intervenir ni desmontar» se lee como en `casos-garantiplus.md` (un desmontaje para determinar el origen, requerido por GarantiPlus **y** autorizado por el propietario, no es 14.1; uno hecho por el taller por su cuenta, probado, sí lo es); el plazo de 48 horas de 12.5 obliga a GarantiPlus, no al distribuidor; las 72 h de 14.4 corren desde un requerimiento formal.
 
 ### 9.2 De la póliza (Póliza MMDM — PRESTACIÓN DEL SERVICIO LUGAR Y HORARIO; CASO FORTUITO O FUERZA MAYOR; LIMITE DE RESPONSABILIDAD)
 
@@ -590,16 +590,16 @@ La refacción se autoriza a **MSRP −10 %** de la lista de precios mensual de M
 | Tema | Certificado (numeral) | Póliza MMDM (sección del Anexo B) | Manual | En `generar_resolucion` |
 | --- | --- | --- | --- | --- |
 | Definición de avería | 1.4 | COBERTURAS DE GARANTÍA («defectuosas por calidad de producto o manufactura») | — | `clausulasLiterales` con numeral «1», título «DEFINICIONES», texto de 1.4 |
-| Compromiso de pago / objeto | 1.5, 4 | COBERTURAS DE GARANTÍA | — | `numerales: ["4"]`; 1.5 literal |
+| Compromiso de pago / objeto | 1.5, 4.1 | COBERTURAS DE GARANTÍA | — | `numerales: ["4.1"]`; 1.5 literal |
 | Componentes excluidos | 2.1–2.9 | PARTES CON GARANTIA DIRECTA DEL FABRICANTE; CONSUMIBLES Y LUBRICANTES; MANTENIMIENTO | — | `numerales: ["2.8"]` etc.; sección MMDM por literal |
 | Partes cubiertas (lista) | 1.5, 3 | PARTES CUBIERTAS | — | Literal con título «PARTES CUBIERTAS» si hace falta fundar una aceptación discutida |
 | PHEV | 3.1, 3.2 | PARTES CUBIERTAS (batería alto voltaje; componentes eléctricos) | — | `numerales: ["3.1"]` |
-| Duración, vigencia | 5, 14.5 | COBERTURAS DE GARANTÍA (7 años; subgarantías) | — | `numerales: ["5", "14.5"]`; subgarantías por literal |
+| Duración, vigencia | 5.1, 5.2, 14.5 | COBERTURAS DE GARANTÍA (7 años; subgarantías) | — | `numerales: ["5.1", "14.5"]`; subgarantías por literal |
 | Transferencia | — | COBERTURAS DE GARANTÍA; CESIÓN | — | Literal |
-| Territorio | 7 | PRESTACIÓN DEL SERVICIO LUGAR Y HORARIO | — | `numerales: ["7"]` |
+| Territorio | 7.1 | PRESTACIÓN DEL SERVICIO LUGAR Y HORARIO | — | `numerales: ["7.1"]` |
 | Obligaciones del beneficiario | 9.1–9.6 | ORDEN DE REPARACIÓN DE GARANTÍA; INFORMACIÓN GENERAL | — | `numerales: ["9.3"]`; «la negación no se basará únicamente…» por literal |
 | Desgaste normal, uso inadecuado | 10, 15.3 | DESGASTE; MANTENIMIENTO | — | `clausulasLiterales` numeral «10», título «OBLIGACIONES DE GARANTIPLUS»; `numerales: ["15.3"]` |
-| Mantenimientos: obligación | 11, 9.3, 9.4 | PRECAUCIONES DE SERVICIO; MANTENIMIENTO DEL SISTEMA DE CONTROL DE EMISIONES | — | `clausulasLiterales` numeral «11», título «MANTENIMIENTOS PERIÓDICOS» |
+| Mantenimientos: obligación | 11, 9.3, 9.4 | MANTENIMIENTO DE SU VEHÍCULO (Precauciones de servicio; Mantenimiento del sistema de control de emisiones) | — | `clausulasLiterales` numeral «11», título «MANTENIMIENTOS PERIÓDICOS» |
 | Mantenimientos: incumplimiento | 14.3 (14.4) | DAÑO CAUSADO POR MANTENIMIENTO INCORRECTO O FALTA DE SEGUIMIENTO DEL PROGRAMA DE MANTENIMIENTO RECOMENDADO | Rangos 1–4; reactivación | `numerales: ["14.3"]` + 11 literal; la sección MMDM por literal si se quiere reforzar; el Manual en `desarrollo` |
 | Procedimiento, desmontaje, inmovilizado | 12.1–12.12, 14.1, 14.2 | PRESTACIÓN DEL SERVICIO (10 días, 60 días, 30 días) | — | `numerales: ["14.1", "12.4"]` |
 | Documentación no aportada | 14.4 | ORDEN DE REPARACIÓN DE GARANTÍA | — | `numerales: ["14.4"]` |
@@ -617,7 +617,7 @@ La refacción se autoriza a **MSRP −10 %** de la lista de precios mensual de M
 
 ## Anexo A · Certificado GARANTÍA REAL 7 (GarantiPlus México, febrero 2019), texto íntegro
 
-Transcrito de `CERTIFICADO FEBRERO. 2019.pdf` (páginas 1–11; las 12–31 son el anexo de VIN y no se transcriben). Los ítems de cada sección llevan aquí su numeral **por posición (S.N)**, que es como se citan en el Informe (`numerales: ["14.3"]` = sección 14, ítem 3). El texto es literal, incluidas erratas del original. Cada página del original lleva el membrete «GARANTIPLUS MÉXICO, S.A.P.I DE C.V. · R.F.C. GME160927DW0 · Av. Presidente Masaryk Nº 111 – Piso 1 · Col. Chapultepec Morales. Ciudad de México · 11560 – México · Email: info@garantiplus.mx · CONTRATO DE GARANTÍA MECANICA SUSCRITO CON GARANTIPLUS MÉXICO» y el recuadro DATOS GENERALES (Fecha de Contrato 24/06/2019 · Limite por Avería: Valor Venta Vehículo · Producto Contratado: GARANTÍA REAL 7 · Límite de Contrato: Valor Venta Vehículo), y el pie «Leído y Conforme Vendedor · Leído y Conforme Comprador · GarantiPlus México».
+Transcrito de `CERTIFICADO FEBRERO. 2019.pdf` (páginas 1–11; las 12–31 son el anexo de VIN y no se transcriben). Los ítems de cada sección llevan aquí su numeral **por posición (S.N)**, que es como se citan en el Informe (`numerales: ["14.3"]` = sección 14, ítem 3). Las secciones de un solo párrafo (4, 5, 6, 7, 10, 11) se citan como `4.1`, `5.1`/`5.2`, `6.1`, `7.1`, `10.1`, `11.1`, que es como las resuelve el conector; la 10 y la 11 se mandan además completas en `clausulasLiterales`, como pide `casos-mitsubishi.md`. El texto es literal, incluidas erratas del original. Cada página del original lleva el membrete «GARANTIPLUS MÉXICO, S.A.P.I DE C.V. · R.F.C. GME160927DW0 · Av. Presidente Masaryk Nº 111 – Piso 1 · Col. Chapultepec Morales. Ciudad de México · 11560 – México · Email: info@garantiplus.mx · CONTRATO DE GARANTÍA MECANICA SUSCRITO CON GARANTIPLUS MÉXICO» y el recuadro DATOS GENERALES (Fecha de Contrato 24/06/2019 · Limite por Avería: Valor Venta Vehículo · Producto Contratado: GARANTÍA REAL 7 · Límite de Contrato: Valor Venta Vehículo), y el pie «Leído y Conforme Vendedor · Leído y Conforme Comprador · GarantiPlus México».
 
 ### HOJA RESUMEN DEL CONTRATO DE GARANTÍA MECÁNICA
 
@@ -659,20 +659,20 @@ Se excluyen de manera expresa los siguientes elementos:
 
 ### 4.- OBJETO DEL CERTIFICADO
 
-GARANTIPLUS MÉXICO, S.A.P.I. DE C.V. garantiza, dentro de los límites fijados en el presente documento, el pago de la reparación de las AVERÍA/AS.
+- **4.1** GARANTIPLUS MÉXICO, S.A.P.I. DE C.V. garantiza, dentro de los límites fijados en el presente documento, el pago de la reparación de las AVERÍA/AS.
 
 ### 5.- DURACIÓN DEL CERTIFICADO
 
-El periodo de garantía cubierto por el certificado de garantía contratado será el indicado en el mismo. Por tanto, sólo estarán cubiertas las AVERÍA/AS que tenga el VEHÍCULO durante la vigencia del contrato.
-Siempre que se hayan realizado en el VEHÍCULO en tiempo y forma los servicios y mantenimientos señalados.
+- **5.1** El periodo de garantía cubierto por el certificado de garantía contratado será el indicado en el mismo. Por tanto, sólo estarán cubiertas las AVERÍA/AS que tenga el VEHÍCULO durante la vigencia del contrato.
+- **5.2** Siempre que se hayan realizado en el VEHÍCULO en tiempo y forma los servicios y mantenimientos señalados.
 
 ### 6.- PERFECCIÓN Y EFECTOS DEL CERTIFICADO.
 
-El certificado contratado se perfecciona por el consentimiento manifestado con la firma del mismo documento.
+- **6.1** El certificado contratado se perfecciona por el consentimiento manifestado con la firma del mismo documento.
 
 ### 7.- DELIMITACIONES GEOGRÁFICAS
 
-La garantía objeto del certificado contratado se extiende y limita a las AVERÍA/AS que tengan lugar dentro de la República Mexicana.
+- **7.1** La garantía objeto del certificado contratado se extiende y limita a las AVERÍA/AS que tengan lugar dentro de la República Mexicana.
 
 ### 8.- OBLIGACIONES DEL CONTRATANTE
 
@@ -693,11 +693,11 @@ El BENEFICIARIO, en relación con el certificado contratado, tiene las siguiente
 
 ### 10.- OBLIGACIONES DE GARANTIPLUS
 
-GARANTIPLUS MÉXICO, S.A.P.I. DE C.V., en relación con el certificado contratado, tiene la obligación de, en los términos y con los límites fijados en el mismo, hacerse cargo de la reparación de las AVERÍA/AS cubiertas, que dentro del periodo de vigencia del certificado pueda tener el VEHÍCULO, siempre y cuando dichas AVERÍAS no traigan causa en un uso inadecuado del VEHÍCULO, o en el deterioro y/o desgaste normal del mismo.
+- **10.1** GARANTIPLUS MÉXICO, S.A.P.I. DE C.V., en relación con el certificado contratado, tiene la obligación de, en los términos y con los límites fijados en el mismo, hacerse cargo de la reparación de las AVERÍA/AS cubiertas, que dentro del periodo de vigencia del certificado pueda tener el VEHÍCULO, siempre y cuando dichas AVERÍAS no traigan causa en un uso inadecuado del VEHÍCULO, o en el deterioro y/o desgaste normal del mismo.
 
 ### 11.- MANTENIMIENTOS PERIÓDICOS
 
-Para que el certificado contratado sea efectivo, el BENEFICIARIO se obliga a efectuar en el VEHÍCULO los trabajos o tareas de mantenimiento exigidas por el POR EL FABRICANTE SIGUIENDO SU PLAN DE MANTENIMIENTO PRECONIZADO, tanto en periodos de tiempo como en kilometraje.
+- **11.1** Para que el certificado contratado sea efectivo, el BENEFICIARIO se obliga a efectuar en el VEHÍCULO los trabajos o tareas de mantenimiento exigidas por el POR EL FABRICANTE SIGUIENDO SU PLAN DE MANTENIMIENTO PRECONIZADO, tanto en periodos de tiempo como en kilometraje.
 
 ### 12.- PROCEDIMIENTO EN CASO DE AVERÍA/AS
 
