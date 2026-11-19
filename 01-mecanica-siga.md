@@ -190,3 +190,12 @@ Caso raro: el técnico comentó, rechazó o aprobó una avería **directamente e
 - Renglones e importes salen de lo que SIGA muestra (montos del taller); el motivo del cuadro «Rechazo de garantía» no se ve en Details y queda vacío; la causa de cada refacción se toma de «Síntomas». La fila queda como **vía manual** con el comentario del técnico.
 - Si ya hay un registro de esa acción sobre ese folio en las últimas 24 h (por el conector o manual), no duplica y lo dice; sólo con `forzar: true` y el sí del técnico se repite.
 - Úsala sólo cuando el técnico diga que hizo algo a mano («ya la cerré yo en SIGA», «la rechacé directo»). Nunca por tu cuenta, y nunca en lugar de `comentar_averia`, `rechazar_averia` o `aprobar_averia`.
+
+## Documentos de pago (v5.0, 19/11/2026)
+
+Después de «Aceptada», la avería sigue viva hasta que se paga: Aceptada → «Entrada a taller» (Taller) → el taller carga la factura en **«Registro de factura(s)»** (PDF y XML; no aparece en Documentos) → Solucionada → comprobante de pago → el taller marca «factura liquidada» → Cerrada. SIGA no tiene un estatus «pendiente de pago»: se reconoce por estar en Aceptada, Taller o Solucionada **sin documento «Comprobante de pago»**.
+
+Tipos de documento de pago en SIGA: Finiquito, Cuenta Bancaria, Constancia Situacion Fiscal, Opinion Cumplimiento, Prefactura, Comprobante de pago, Complemento de pago. Los talleres los eligen mal con frecuencia («Taller», «Varios»): el conector los clasifica por contenido.
+
+Herramientas: `pagos_pendientes`, `expediente_pago`, `enviar_a_pagos` (sección 8 de las instrucciones; detalle en `06-documentos-de-pago.md`). Ninguna escribe en SIGA; los comentarios al taller siguen saliendo por `comentar_averia`.
+
