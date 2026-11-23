@@ -19,7 +19,7 @@ El generador no decide nada: recibe una decisión ya acordada con el técnico y 
 
 ## 2. Estructura fija del Informe (la pone la plantilla)
 
-1. Encabezado: DATOS DE AVERÍA / DATOS DEL VEHÍCULO. **Ningún campo vacío ni en 0** (ver esquema en las instrucciones §5.1).
+1. Encabezado: DATOS DE AVERÍA / DATOS DEL VEHÍCULO. **Ningún campo vacío ni en 0** (ver esquema en las instrucciones §5.1). Única excepción (v5.1): `kmInicial` 0 cuando el certificado dice que el vehículo se contrató nuevo; se imprime «0 KM» y es correcto.
 2. "Una vez recibida toda la información facilitada y tras analizar la avería que nos ocupa y elementos afectados, con base al contrato, pasamos a indicar:"
 3. **Frase de dictamen** = `componente` + `causaBreve` (improcedente) o `componente` + importe (procedente).
 4. **Cuerpo** = párrafos de `desarrollo` (uno por elemento).
