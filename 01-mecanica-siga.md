@@ -191,11 +191,11 @@ Caso raro: el técnico comentó, rechazó o aprobó una avería **directamente e
 - Si ya hay un registro de esa acción sobre ese folio en las últimas 24 h (por el conector o manual), no duplica y lo dice; sólo con `forzar: true` y el sí del técnico se repite.
 - Úsala sólo cuando el técnico diga que hizo algo a mano («ya la cerré yo en SIGA», «la rechacé directo»). Nunca por tu cuenta, y nunca en lugar de `comentar_averia`, `rechazar_averia` o `aprobar_averia`.
 
-## Documentos de pago (v5.2, 24/11/2026)
+## Documentos de pago (v6.0, 25/11/2026)
 
 Después de «Aceptada», la avería sigue viva hasta que se paga: Aceptada → «Entrada a taller» (Taller) → el taller carga la factura en **«Registro de factura(s)»** (PDF y XML; no aparece en Documentos) → Solucionada → comprobante de pago → el taller marca «factura liquidada» → Cerrada. SIGA no tiene un estatus «pendiente de pago»: se reconoce por estar en Aceptada, Taller o Solucionada **sin documento «Comprobante de pago»**.
 
 Tipos de documento de pago en SIGA: Finiquito, Cuenta Bancaria, Constancia Situacion Fiscal, Opinion Cumplimiento, Prefactura, Comprobante de pago, Complemento de pago. Los talleres los eligen mal con frecuencia («Taller», «Varios»): el conector los clasifica por contenido.
 
-La revisión vive en el Tablero de Pagos (sección 8 de las instrucciones). Los comentarios al taller siguen saliendo por `comentar_averia`.
+Desde la v6.0 (25/11/2026) el pago de una avería aprobada se revisa también en el chat, con `caso_de_pago` (sección 8 de las instrucciones); un agente del área revisa todos los casos dos veces al día y el área los ve en su tablero web. Mitsubishi entra a esta línea. Los comentarios al taller salen por `comentar_averia` (etiqueta `falta_documentacion`) y el envío a contabilidad por `enviar_a_pagos`.
 
